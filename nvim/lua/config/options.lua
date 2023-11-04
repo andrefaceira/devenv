@@ -1,47 +1,91 @@
--- local indent = 2
 
--- vim.o.formatoptions = "jcroqlnt"
--- vim.o.shortmess = "filnxtToOFWIcC"
--- vim.opt.breakindent = true
--- vim.opt.cmdheight = 1
--- vim.opt.clipboard = "unnamedplus" -- Access system clipboard
--- vim.opt.completeopt = "menuone,noselect"
--- vim.opt.conceallevel = 3
--- vim.opt.confirm = true
--- vim.opt.cursorline = true
--- vim.opt.expandtab = true
--- vim.opt.hidden = true
--- vim.opt.hlsearch = false
--- vim.opt.ignorecase = true
--- vim.opt.inccommand = "nosplit"
--- vim.opt.joinspaces = false
--- vim.opt.laststatus = 0
--- vim.opt.list = true
--- vim.opt.mouse = "a"
--- vim.opt.number = true
--- vim.opt.pumblend = 10
--- vim.opt.pumheight = 10
--- vim.opt.relativenumber = true
--- vim.opt.scrolloff = 8
--- vim.opt.scrollback = 100000
--- vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
--- vim.opt.shiftround = true
--- vim.opt.shiftwidth = indent
--- vim.opt.showmode = false
--- vim.opt.sidescrolloff = 8
--- vim.opt.signcolumn = "yes"
--- vim.opt.smartcase = true
--- vim.opt.smartindent = true
--- vim.opt.splitbelow = true
--- vim.opt.splitkeep = "screen"
--- vim.opt.splitright = true
--- vim.opt.tabstop = indent
--- vim.opt.termguicolors = true
--- vim.opt.timeoutlen = 300
--- vim.opt.undofile = true
--- vim.opt.updatetime = 200
--- vim.opt.wildmode = "longest:full,full"
+local opt = vim.opt
 
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = ","
--- vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+opt.autowrite = true -- enable auto write
+opt.clipboard = "unnamedplus" -- sync system clipboard
+opt.completeopt = "menu,menuone,noselect"
+opt.conceallevel = 0 -- TODO 3 hide * markup for bold and italic
+opt.confirm = true -- confirm save changes instead of error
+opt.cursorline = true -- highlighting current cursor line
+opt.expandtab = true -- spaces instead of tabs
+opt.formatoptions = "jcroqlnt" -- TODO "jqlnt"
+opt.ignorecase = true -- ignore case
+opt.inccommand = "nosplit" -- preview incremental substitute
+-- opt.grepformat = "%f:%l:%c:%m"
+-- opt.grepprg = "rg --vimgrep"
+opt.laststatus = 3 -- global statusline
+opt.list = true -- show invisible chars (tabs, ...)
+opt.mouse = "a" -- enable mouse
+opt.number = true -- line numbers
+opt.relativenumber = true -- relative line numbers
+opt.pumblend = 10 -- popup blend
+opt.pumheight = 10 -- maximum number of entries in a popup
+opt.autoindent = true
+opt.breakindent = false
+opt.cmdheight = 0
+opt.scrolloff = 4 -- lines of context
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+opt.shiftround = true -- round indent
+opt.shiftwidth = 2 -- indent size
+opt.shortmess:append({ W = true, I = true, c = true, C = true })
+opt.showmode = false
+opt.sidescrolloff = 8 -- columns of context
+opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+opt.smartcase = true
+opt.smartindent = true
+opt.spelllang = { "en" }
+opt.splitbelow = true
+opt.splitkeep = "screen"
+opt.splitright = true
+opt.tabstop = 2
+opt.termguicolors = true
+opt.timeoutlen = 300
+opt.undofile = true
+opt.undolevels = 10000
+opt.updatetime = 200 -- save swap file and trigger CursorHold
+opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
+opt.wildmode = "longest:full,full" -- Command-line completion mode
+opt.smoothscroll = true
+
+-- opt.foldcolumn = "1" -- '0' is not bad
+-- opt.foldenable = true
+opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+-- opt.foldlevelstart = 99
+opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+opt.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]]
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+
+opt.winminwidth = 5 -- Minimum window width
+opt.wrap = false -- Disable line wrap
+opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  -- fold = "⸱",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
+
+-- opt.hidden = true
+-- opt.hlsearch = false
+-- opt.joinspaces = false
+-- opt.scrollback = 100000
+-- opt.showcmd = false
+-- opt.title = true
+
+local o = vim.o
+
+o.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
+
+
+local g = vim.g
+
+g.mapleader = " "
+g.maplocalleader = ","
+g.autoformat = true
+g.markdown_recommended_style = 0
+

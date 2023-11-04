@@ -40,4 +40,4 @@ require("lazy").setup {
     },
   },
 }
-vim.keymap.set("n", "<leader>zz", "<cmd>:Lazy<cr>", { desc = "Plugin Manager" })
+
