@@ -1,0 +1,12 @@
+
+# configure exports 
+source ~/.config/zsh/custom/exports.zsh
+
+# install plugins
+source ~/.config/zsh/custom/plugins.zsh
+
+# configure theme
+source ~/.config/zsh/custom/theme.zsh
+
+# configure aliases
+source ~/.config/zsh/custom/aliases.zsh
