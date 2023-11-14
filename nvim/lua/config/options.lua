@@ -46,17 +46,16 @@ opt.undolevels = 10000
 opt.updatetime = 200 -- save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
-opt.smoothscroll = true
 
 -- opt.foldcolumn = "1" -- '0' is not bad
 -- opt.foldenable = true
 opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 -- opt.foldlevelstart = 99
-opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
-opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
-opt.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]]
-opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+-- opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+-- opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+-- opt.statuscolumn = [[%!v:lua.require'lazyvim.util'.ui.statuscolumn()]]
+-- opt.foldmethod = "expr"
+-- opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
 
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
@@ -79,7 +78,7 @@ opt.fillchars = {
 
 local o = vim.o
 
-o.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
+-- o.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
 
 
 local g = vim.g
